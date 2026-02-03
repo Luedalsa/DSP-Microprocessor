@@ -85,7 +85,7 @@ begin
                 result <= shift_left(operand_A, to_integer(operand_B(4 downto 0)));
 
             when others =>
-                result <= (others => '0');
+					 null;
         end case;
     end process;
 

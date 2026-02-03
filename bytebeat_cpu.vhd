@@ -77,16 +77,16 @@ architecture structural of bytebeat_cpu is
     -- Contadores de Programa y Pila
     signal pc          : unsigned(5 downto 0);
     signal pc_old      : unsigned(5 downto 0); -- Respaldo para saltos o esperas de memoria
-    signal sp          : unsigned(5 downto 0) := (others => '1'); -- Stack Pointer (apunta al tope)
-    signal sp_sub      : unsigned(5 downto 0) := (others => '0'); -- Auxiliar para operaciones de pila
+    --signal sp          : unsigned(5 downto 0) := (others => '1'); -- Stack Pointer (apunta al tope)
+    --signal sp_sub      : unsigned(5 downto 0) := (others => '0'); -- Auxiliar para operaciones de pila
     
     -- Banderas de Control de Flujo
     signal was_jump    : std_logic;
     --signal was_pop     : std_logic;
 
     -- Máquina de Estados
-    type state_type is (FETCH_EXECUTE, WAIT_MEM, WRITE_BACK);
-    signal current_state : state_type := FETCH_EXECUTE;
+    --type state_type is (FETCH_EXECUTE, WAIT_MEM, WRITE_BACK);
+    --signal current_state : state_type := FETCH_EXECUTE;
 
     -- Señales de ALU y Registros
     signal alu_operand_a : unsigned(31 downto 0);
@@ -162,7 +162,7 @@ begin
             --rdata_address   <= (others => '0');
             was_jump      <= '0';
             --was_pop       <= '0';
-            current_state <= FETCH_EXECUTE;
+            --current_state <= FETCH_EXECUTE;
             
         elsif rising_edge(CLOCK) then
             
@@ -197,16 +197,16 @@ begin
                         --if rinstruction_out(31 downto 27) /= OP_LDI then
                             case rinstruction_out(26 downto 24) is
                                 when OP_PUSH =>
-                                     rdata_address      <= std_logic_vector(sp);
+                                     --rdata_address      <= std_logic_vector(sp);
                                      rdata_in      <= std_logic_vector(reg_a);
-                                     sp               <= sp - 1;
-                                     sp_sub           <= sp_sub -1;
+                                     --sp               <= sp - 1;
+                                     --sp_sub           <= sp_sub -1;
                                      rdata_we <= '1'; -- Escribir en Stack
 
                                 when OP_POP =>
-                                     sp          <= sp + 1;
-                                     sp_sub      <= sp_sub + 1;
-                                     rdata_address <= std_logic_vector(sp_sub);
+                                     --sp          <= sp + 1;
+                                     --sp_sub      <= sp_sub + 1;
+                                     --rdata_address <= std_logic_vector(sp_sub);
 												 reg_b <= unsigned(rdata_out);
                                      --was_pop     <= '1'; -- Marcar para leer dato en WRITE_BACK
 
@@ -275,15 +275,15 @@ begin
             else 
                 rinstruction_we <= '1';
                 
-                case current_state is
-                    when FETCH_EXECUTE =>
+                --case current_state is
+                    --when FETCH_EXECUTE =>
                         -- Escribir instrucción externa en la dirección actual del PC
                         rinstruction_address <= std_logic_vector(pc(5 downto 0));
                         rinstruction_in <= DATA_IN;
                         pc <= pc + 1; -- Avanzar a siguiente dirección de memoria
                         
-                    when others => null;
-                end case;
+                    --when others => null;
+                --end case;
             end if;
         end if;
     end process;
