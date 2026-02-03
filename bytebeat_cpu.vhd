@@ -180,6 +180,8 @@ begin
                 pc <= pc + 1;
                 pc_old <= pc;
                 rinstruction_address <= std_logic_vector(pc(5 downto 0));
+					 
+					 rdata_address      <= std_logic_vector(rinstruction_out(5 downto 0));
 
                 --case current_state is
 
@@ -196,12 +198,12 @@ begin
                         -- Decodificación de Instrucciones de Control (Stack, Jumps)
                         --if rinstruction_out(31 downto 27) /= OP_LDI then
                             case rinstruction_out(26 downto 24) is
-                                when OP_PUSH =>
+                                when OP_PUSH => -- OP_LDA
                                      --rdata_address      <= std_logic_vector(sp);
                                      rdata_in      <= std_logic_vector(reg_a);
                                      --sp               <= sp - 1;
                                      --sp_sub           <= sp_sub -1;
-                                     rdata_we <= '1'; -- Escribir en Stack
+                                     rdata_we <= '1'; -- Escribir en Memoria
 
                                 when OP_POP =>
                                      --sp          <= sp + 1;
