@@ -1,0 +1,24 @@
+# 1. Ignore EVERYTHING first
+*
+
+# 2. Re-include directories (so Git can find files inside folders)
+!*/
+
+# 3. Whitelist Source Code (The stuff that matters)
+!*.vhd
+!*.verilog
+!*.v
+!*.sch
+!*.sym
+
+# 4. Whitelist Project & Constraint Files
+!*.xise
+!*.ucf
+!*.gitignore
+!README.md
+
+# 5. Whitelist Simulation/Data files (Optional, if you need them)
+!*.wcfg
+!*.txt
+!*.csv
+!*.html
