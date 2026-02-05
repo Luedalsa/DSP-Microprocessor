@@ -101,19 +101,10 @@ begin
         report "Cargando programa...";
 
         -- Secuencia de instrucciones reconstruida (Tu programa Bytebeat)
-        write_instruction_with_data("0" & OP_AND &  "000000000000000000000001011");
-        write_instruction_with_data("00000" & OP_PUSH  & "000000000000000000000110");
-        write_instruction_with_data(OP_MOV & OP_POP  & "000000000000000000000110");
-        write_instruction_with_data("0" & OP_MUL &  "000000000000000000000001011");
-        --write_instruction_with_data(OP_LDI &        "000000000000000000000001011");
-        write_instruction_with_data("0" & OP_SHR & OP_POP  & "000000000000000000000110");
-        write_instruction_with_data("0" & OP_OR &  "000000000000000000000001011");
-        write_instruction_with_data(OP_MOV & OP_PUSH  & "000000000000000000000110");
-        --write_instruction_with_data(OP_LDI &        "000000000000000000000000010");
-        write_instruction_with_data(OP_SWP & "000000000000000000000000000"); 
-        write_instruction_with_data("0" & OP_ADD & OP_POP  & "000000000000000000000000");
-        --write_instruction_with_data(OP_LDI &        "000000000000000000000000010");
+        write_instruction_with_data(OP_MOV & OP_LDI & "000000000000000000001000");
         write_instruction_with_data("0" & OP_SHR & "000000000000000000000000000");
+        write_instruction_with_data(OP_MOV & "000000000000000000000000000");
+        write_instruction_with_data("0" & OP_AND & "000000000000000000000000000");
         write_instruction_with_data(OP_OUT & "000000000000000000000000000"); -- OUT resetea PC
 
         -- NOPs de relleno

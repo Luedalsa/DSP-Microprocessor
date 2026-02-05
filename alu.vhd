@@ -30,7 +30,7 @@ begin
                 
             when OP_MUL => 
                 -- Multiplicación devuelve el doble de bits, recortamos a los 32 bajos (wrap-around)
-                --result <= resize(operand_A * operand_B, 32);  -- <== caro pero no tanto
+                result <= resize(operand_A * operand_B, 32);  -- <== caro pero no tanto
                 
             when OP_DIV =>
                 -- Protección contra división por cero
