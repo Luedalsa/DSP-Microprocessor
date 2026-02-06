@@ -71,6 +71,21 @@ architecture structural of bytebeat_cpu is
             result      : out unsigned(31 downto 0)
         );
     end component;
+	 
+	 component divisor is
+		 Generic ( WIDTH : integer := 32 );
+		 Port ( 
+			  clk         : in  STD_LOGIC;
+			  reset       : in  STD_LOGIC;
+			  start_i     : in  STD_LOGIC;
+			  dividend_i  : in  STD_LOGIC_VECTOR (WIDTH-1 downto 0);
+			  divisor_i   : in  STD_LOGIC_VECTOR (WIDTH-1 downto 0);
+			  quotient_o  : out STD_LOGIC_VECTOR (WIDTH-1 downto 0);
+			  remainder_o : out STD_LOGIC_VECTOR (WIDTH-1 downto 0);
+			  busy_o      : out STD_LOGIC;
+			  done_o      : out STD_LOGIC
+		 );
+	end component;
 
     -- 2. SEÑALES INTERNAS
     
@@ -93,6 +108,12 @@ architecture structural of bytebeat_cpu is
     signal alu_operand_b : unsigned(31 downto 0);
     signal alu_result    : unsigned(31 downto 0);
     signal alu_op_signal : std_logic_vector(3 downto 0);
+	 -- Añadir en la sección de señales internas
+	signal div_start     : std_logic := '0';
+	signal div_quotient  : std_logic_vector(31 downto 0);
+	signal div_remainder : std_logic_vector(31 downto 0);
+	signal div_busy      : std_logic;
+	signal div_done      : std_logic;
 
     -- Registros de Propósito General
     signal reg_a : unsigned(31 downto 0) := (others => '0'); -- Acumulador principal
@@ -143,6 +164,20 @@ begin
             alu_op    => alu_op_signal,
             result    => alu_result
         );
+		  
+    Divisor_Unit : divisor
+    generic map ( WIDTH => 32 )
+    port map (
+        clk         => CLOCK,
+        reset       => RESET,
+        start_i     => div_start,
+        dividend_i  => std_logic_vector(reg_a), -- Dividendo = Acumulador
+        divisor_i   => std_logic_vector(reg_b), -- Divisor = Registro B
+        quotient_o  => div_quotient,
+        remainder_o => div_remainder,
+        busy_o      => div_busy,
+        done_o      => div_done
+    );
 
     -- Conexiones del Datapath a la ALU
     alu_operand_a <= reg_a;
@@ -168,6 +203,7 @@ begin
             
             -- Reiniciar bandera de salto por defecto
             was_jump <= '0';
+				div_start <= '0';
 
             ------------------------------------------------------------
             -- MODO 1: EJECUCIÓN NORMAL (INS_WRITE_ENABLED = '0')
@@ -246,7 +282,16 @@ begin
                                      -- Intercambio de registros A y B (Swap) en un ciclo
                                      reg_a <= reg_b;
                                      reg_b <= reg_a;
-
+												 
+                                when OP_DIV =>
+												 div_start <= '1'; -- Iniciar divisor
+												 
+                                when OP_MOD =>
+                                     reg_a <= unsigned(div_remainder);
+												 
+                                when OP_REC =>
+                                     reg_a <= unsigned(div_quotient);
+												 
                                 when OP_OUT => 
                                      -- Salida de Audio (Bytebeat Core)
                                      AUDIO_OUT <= std_logic_vector(reg_a(7 downto 0));

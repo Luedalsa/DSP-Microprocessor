@@ -3,7 +3,7 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="C:/Bytebeat/bytebeat_cpu_tb_isim_beh1.wdb" id="1" type="auto">
+      <db_ref path="C:/Bytebeat/bytebeat_cpu_tb_isim_beh.wdb" id="1" type="auto">
          <top_modules>
             <top_module name="bytebeat_cpu_tb" />
             <top_module name="definitions_pkg" />
@@ -14,7 +14,7 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="25" />
+   <WVObjectSize size="31" />
    <wvobject fp_name="/bytebeat_cpu_tb/uut/clock" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">clock</obj_property>
       <obj_property name="ObjectShortName">clock</obj_property>
@@ -30,22 +30,18 @@
    <wvobject fp_name="/bytebeat_cpu_tb/uut/data_in" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">data_in[31:0]</obj_property>
       <obj_property name="ObjectShortName">data_in[31:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/bytebeat_cpu_tb/uut/audio_out" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">audio_out[7:0]</obj_property>
       <obj_property name="ObjectShortName">audio_out[7:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/bytebeat_cpu_tb/uut/pc" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">pc[5:0]</obj_property>
       <obj_property name="ObjectShortName">pc[5:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/bytebeat_cpu_tb/uut/pc_old" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">pc_old[5:0]</obj_property>
       <obj_property name="ObjectShortName">pc_old[5:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/bytebeat_cpu_tb/uut/was_jump" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">was_jump</obj_property>
@@ -54,67 +50,74 @@
    <wvobject fp_name="/bytebeat_cpu_tb/uut/alu_operand_a" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">alu_operand_a[31:0]</obj_property>
       <obj_property name="ObjectShortName">alu_operand_a[31:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/bytebeat_cpu_tb/uut/alu_operand_b" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">alu_operand_b[31:0]</obj_property>
       <obj_property name="ObjectShortName">alu_operand_b[31:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/bytebeat_cpu_tb/uut/alu_result" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">alu_result[31:0]</obj_property>
       <obj_property name="ObjectShortName">alu_result[31:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/bytebeat_cpu_tb/uut/alu_op_signal" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">alu_op_signal[3:0]</obj_property>
       <obj_property name="ObjectShortName">alu_op_signal[3:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bytebeat_cpu_tb/uut/div_start" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">div_start</obj_property>
+      <obj_property name="ObjectShortName">div_start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bytebeat_cpu_tb/uut/div_quotient" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">div_quotient[31:0]</obj_property>
+      <obj_property name="ObjectShortName">div_quotient[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bytebeat_cpu_tb/uut/div_remainder" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">div_remainder[31:0]</obj_property>
+      <obj_property name="ObjectShortName">div_remainder[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bytebeat_cpu_tb/uut/div_busy" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">div_busy</obj_property>
+      <obj_property name="ObjectShortName">div_busy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bytebeat_cpu_tb/uut/div_done" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">div_done</obj_property>
+      <obj_property name="ObjectShortName">div_done</obj_property>
    </wvobject>
    <wvobject fp_name="/bytebeat_cpu_tb/uut/reg_a" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">reg_a[31:0]</obj_property>
       <obj_property name="ObjectShortName">reg_a[31:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/bytebeat_cpu_tb/uut/reg_b" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">reg_b[31:0]</obj_property>
       <obj_property name="ObjectShortName">reg_b[31:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/bytebeat_cpu_tb/uut/reg_t" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">reg_t[31:0]</obj_property>
       <obj_property name="ObjectShortName">reg_t[31:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/bytebeat_cpu_tb/uut/rinstruction_address" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">rinstruction_address[5:0]</obj_property>
       <obj_property name="ObjectShortName">rinstruction_address[5:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/bytebeat_cpu_tb/uut/rdata_address" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">rdata_address[5:0]</obj_property>
       <obj_property name="ObjectShortName">rdata_address[5:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/bytebeat_cpu_tb/uut/rinstruction_in" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">rinstruction_in[31:0]</obj_property>
       <obj_property name="ObjectShortName">rinstruction_in[31:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/bytebeat_cpu_tb/uut/rdata_in" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">rdata_in[31:0]</obj_property>
       <obj_property name="ObjectShortName">rdata_in[31:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/bytebeat_cpu_tb/uut/rinstruction_out" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">rinstruction_out[31:0]</obj_property>
       <obj_property name="ObjectShortName">rinstruction_out[31:0]</obj_property>
-      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/bytebeat_cpu_tb/uut/rdata_out" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">rdata_out[31:0]</obj_property>
       <obj_property name="ObjectShortName">rdata_out[31:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/bytebeat_cpu_tb/uut/rinstruction_we" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">rinstruction_we</obj_property>
@@ -194,6 +197,70 @@
       <wvobject fp_name="/bytebeat_cpu_tb/uut/ALU_Unit/result" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">result[31:0]</obj_property>
          <obj_property name="ObjectShortName">result[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group56" type="group">
+      <obj_property name="label">Divisor</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/bytebeat_cpu_tb/uut/Divisor_Unit/clk" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bytebeat_cpu_tb/uut/Divisor_Unit/reset" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">reset</obj_property>
+         <obj_property name="ObjectShortName">reset</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bytebeat_cpu_tb/uut/Divisor_Unit/start_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">start_i</obj_property>
+         <obj_property name="ObjectShortName">start_i</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bytebeat_cpu_tb/uut/Divisor_Unit/dividend_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">dividend_i[31:0]</obj_property>
+         <obj_property name="ObjectShortName">dividend_i[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bytebeat_cpu_tb/uut/Divisor_Unit/divisor_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">divisor_i[31:0]</obj_property>
+         <obj_property name="ObjectShortName">divisor_i[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bytebeat_cpu_tb/uut/Divisor_Unit/quotient_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">quotient_o[31:0]</obj_property>
+         <obj_property name="ObjectShortName">quotient_o[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bytebeat_cpu_tb/uut/Divisor_Unit/remainder_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">remainder_o[31:0]</obj_property>
+         <obj_property name="ObjectShortName">remainder_o[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bytebeat_cpu_tb/uut/Divisor_Unit/busy_o" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">busy_o</obj_property>
+         <obj_property name="ObjectShortName">busy_o</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bytebeat_cpu_tb/uut/Divisor_Unit/done_o" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">done_o</obj_property>
+         <obj_property name="ObjectShortName">done_o</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bytebeat_cpu_tb/uut/Divisor_Unit/state" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">state</obj_property>
+         <obj_property name="ObjectShortName">state</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bytebeat_cpu_tb/uut/Divisor_Unit/reg_work" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">reg_work[63:0]</obj_property>
+         <obj_property name="ObjectShortName">reg_work[63:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bytebeat_cpu_tb/uut/Divisor_Unit/reg_div" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">reg_div[31:0]</obj_property>
+         <obj_property name="ObjectShortName">reg_div[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bytebeat_cpu_tb/uut/Divisor_Unit/count" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">count</obj_property>
+         <obj_property name="ObjectShortName">count</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bytebeat_cpu_tb/uut/Divisor_Unit/width" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">width</obj_property>
+         <obj_property name="ObjectShortName">width</obj_property>
       </wvobject>
    </wvobject>
 </wave_config>

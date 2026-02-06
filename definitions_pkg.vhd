@@ -15,8 +15,6 @@ package definitions_pkg is
     constant OP_ADD  : std_logic_vector(3 downto 0) := "0001"; -- Suma no op_params ADD a, b ; Sólo se necesita 1 configuración
     constant OP_SUB  : std_logic_vector(3 downto 0) := "0010"; -- Resta op_params 1 bit: SUB a, b ; SUB b, a ; Sólo se necesitan 2 configuraciones
     constant OP_MUL  : std_logic_vector(3 downto 0) := "0011"; -- Multiplicación no op_params: MUL a, b ;
-    constant OP_DIV  : std_logic_vector(3 downto 0) := "0100"; -- División op_params 1 bit: DIV a, b ; DIV b, a ; 
-    constant OP_MOD  : std_logic_vector(3 downto 0) := "0101"; -- Módulo op_params 1 bit: MOD a, b ; MOD b, a ; 
     constant OP_GT   : std_logic_vector(3 downto 0) := "0110";
     constant OP_LT   : std_logic_vector(3 downto 0) := "0111";
 
@@ -33,7 +31,10 @@ package definitions_pkg is
     constant OP_LDI  : std_logic_vector(2 downto 0) := "111"; -- Cargar Inmediato (cargar un valor constante de 32 bit a un registro) op_params 33 bit: LDI a, c ; LDI b, c ;
 	 
 	 -- Operación de intercambio
-	 constant OP_SWP : std_logic_vector(4 downto 0) := "10100";  -- Intercambia la salida del registro a y b
+	 constant OP_SWP : std_logic_vector(4 downto 0) := "10001";  -- Intercambia la salida del registro a y b
+    constant OP_DIV : std_logic_vector(4 downto 0) := "10011"; -- División op_params 1 bit: DIV a, b ; DIV b, a ; 
+    constant OP_MOD : std_logic_vector(4 downto 0) := "10100"; -- Módulo op_params 1 bit: MOD a, b ; MOD b, a ; 
+    constant OP_REC : std_logic_vector(4 downto 0) := "10101"; -- Recupera el resultado de la división desacoplada
 
     -- Operaciones de Salto y Control de Flujo
     constant OP_JMP  : std_logic_vector(2 downto 0) := "001"; -- Salto Incondicional (Jump)

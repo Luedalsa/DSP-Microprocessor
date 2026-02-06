@@ -32,7 +32,7 @@ begin
                 -- Multiplicación devuelve el doble de bits, recortamos a los 32 bajos (wrap-around)
                 result <= resize(operand_A * operand_B, 32);  -- <== caro pero no tanto
                 
-            when OP_DIV =>
+            --when OP_DIV =>
                 -- Protección contra división por cero
                 --if operand_B = 0 then
                     --result <= (others => '0');
@@ -40,7 +40,7 @@ begin
                     --result <= operand_A / operand_B;  -- <== ESTO ES MUY CARO
                 --end if;
                 
-            when OP_MOD =>
+            --when OP_MOD =>
                 -- Protección contra módulo cero
                 --if operand_B = 0 then
                     --result <= (others => '0');
