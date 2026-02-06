@@ -87,6 +87,16 @@ architecture structural of bytebeat_cpu is
 		 );
 	end component;
 
+	COMPONENT multiplier
+	  PORT (
+		 clk : IN STD_LOGIC;
+		 a : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+		 b : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+		 ce : IN STD_LOGIC;
+		 p : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
+	  );
+	END COMPONENT;
+	
     -- 2. SEÑALES INTERNAS
     
     -- Contadores de Programa y Pila
@@ -108,12 +118,17 @@ architecture structural of bytebeat_cpu is
     signal alu_operand_b : unsigned(31 downto 0);
     signal alu_result    : unsigned(31 downto 0);
     signal alu_op_signal : std_logic_vector(3 downto 0);
+	 
 	 -- Añadir en la sección de señales internas
 	signal div_start     : std_logic := '0';
 	signal div_quotient  : std_logic_vector(31 downto 0);
 	signal div_remainder : std_logic_vector(31 downto 0);
 	signal div_busy      : std_logic;
 	signal div_done      : std_logic;
+	
+	 -- Añadir en la sección de señales internas
+	signal mul_product  : std_logic_vector(31 downto 0);
+	signal mul_ce       : std_logic;
 
     -- Registros de Propósito General
     signal reg_a : unsigned(31 downto 0) := (others => '0'); -- Acumulador principal
@@ -178,6 +193,15 @@ begin
         busy_o      => div_busy,
         done_o      => div_done
     );
+	 
+	Multiplier_Unit : multiplier
+	  PORT MAP (
+		 clk => CLOCK,
+		 a => std_logic_vector(reg_a),
+		 b => std_logic_vector(reg_b),
+		 ce => mul_ce,
+		 p => mul_product
+	  );
 
     -- Conexiones del Datapath a la ALU
     alu_operand_a <= reg_a;
@@ -289,8 +313,15 @@ begin
                                 when OP_MOD =>
                                      reg_a <= unsigned(div_remainder);
 												 
-                                when OP_REC =>
+                                when OP_RECD =>
                                      reg_a <= unsigned(div_quotient);
+												 
+                                when OP_MUL =>
+                                     mul_ce <= '1';
+												 
+                                when OP_RECM =>
+                                     reg_a <= unsigned(mul_product);
+                                     mul_ce <= '0';
 												 
                                 when OP_OUT => 
                                      -- Salida de Audio (Bytebeat Core)

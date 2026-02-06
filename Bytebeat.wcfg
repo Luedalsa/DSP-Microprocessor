@@ -5,16 +5,21 @@
    <db_ref_list>
       <db_ref path="C:/Bytebeat/bytebeat_cpu_tb_isim_beh.wdb" id="1" type="auto">
          <top_modules>
+            <top_module name="bip_utils_pkg_v2_0" />
             <top_module name="bytebeat_cpu_tb" />
             <top_module name="definitions_pkg" />
+            <top_module name="mult_gen_pkg_v11_2" />
             <top_module name="numeric_std" />
             <top_module name="std_logic_1164" />
+            <top_module name="std_logic_arith" />
+            <top_module name="std_logic_signed" />
             <top_module name="std_logic_textio" />
+            <top_module name="std_logic_unsigned" />
             <top_module name="textio" />
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="31" />
+   <WVObjectSize size="32" />
    <wvobject fp_name="/bytebeat_cpu_tb/uut/clock" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">clock</obj_property>
       <obj_property name="ObjectShortName">clock</obj_property>
@@ -261,6 +266,30 @@
       <wvobject fp_name="/bytebeat_cpu_tb/uut/Divisor_Unit/width" type="other" db_ref_id="1">
          <obj_property name="ElementShortName">width</obj_property>
          <obj_property name="ObjectShortName">width</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group67" type="group">
+      <obj_property name="label">Multiplier</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/bytebeat_cpu_tb/uut/Multiplier_Unit/clk" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bytebeat_cpu_tb/uut/Multiplier_Unit/a" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">a[31:0]</obj_property>
+         <obj_property name="ObjectShortName">a[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bytebeat_cpu_tb/uut/Multiplier_Unit/b" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">b[31:0]</obj_property>
+         <obj_property name="ObjectShortName">b[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bytebeat_cpu_tb/uut/Multiplier_Unit/ce" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">ce</obj_property>
+         <obj_property name="ObjectShortName">ce</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bytebeat_cpu_tb/uut/Multiplier_Unit/p" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">p[31:0]</obj_property>
+         <obj_property name="ObjectShortName">p[31:0]</obj_property>
       </wvobject>
    </wvobject>
 </wave_config>

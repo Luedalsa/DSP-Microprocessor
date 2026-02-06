@@ -104,13 +104,13 @@ begin
         write_instruction_with_data(OP_NOP & "000000000000000000000000000");
         write_instruction_with_data(OP_MOV & OP_LDI & "000000000000000000000011");
         write_instruction_with_data(OP_DIV & "000000000000000000000000000");
+        write_instruction_with_data(OP_MOV & OP_LDI & "000000000000000000001011");
+        write_instruction_with_data(OP_MUL & "000000000000000000000000000");
         write_instruction_with_data(OP_NOP & "000000000000000000000000000");
         write_instruction_with_data(OP_NOP & "000000000000000000000000000");
         write_instruction_with_data(OP_NOP & "000000000000000000000000000");
         write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
+        write_instruction_with_data(OP_RECM & "000000000000000000000000000");
         write_instruction_with_data(OP_NOP & "000000000000000000000000000");
         write_instruction_with_data(OP_NOP & "000000000000000000000000000");
         write_instruction_with_data(OP_NOP & "000000000000000000000000000");
