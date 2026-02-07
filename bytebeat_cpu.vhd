@@ -298,7 +298,7 @@ begin
                             end if;
                         else
                             -- Operaciones especiales (Bit 31 alto)
-                            case rinstruction_out(31 downto 27) is
+                            case rinstruction_out(30 downto 27) is
                                 when OP_MOV =>
                                      reg_a <= reg_t; -- Mover contador de tiempo a A
 

@@ -8,6 +8,10 @@ use ieee.std_logic_1164.all;
 
 package definitions_pkg is
 
+
+    constant ALU_OP  : std_logic := '1';
+	 constant GEN_OP  : std_logic := '0';
+
     -- NOP (Sin operación)
     constant OP_NOP  : std_logic_vector(4 downto 0) := "00000";
 
@@ -26,16 +30,16 @@ package definitions_pkg is
     constant OP_SHL  : std_logic_vector(3 downto 0) := "1101"; -- Desplazamiento a la izquierda (t << n) op_params 1 bit: SHL a, b ; SHL b, a ; 
 
     -- Operaciones de Transferencia de Datos
-    constant OP_MOV  : std_logic_vector(4 downto 0) := "10000"; -- Mover dato op_params 1 bit: MOV a, t ; MOV b, t
+    constant OP_MOV  : std_logic_vector(3 downto 0) := "0000"; -- Mover dato op_params 1 bit: MOV a, t ; MOV b, t
     constant OP_LDI  : std_logic_vector(2 downto 0) := "111"; -- Cargar Inmediato (cargar un valor constante de 32 bit a un registro) op_params 33 bit: LDI a, c ; LDI b, c ;
 	 
 	 -- Operación de intercambio
-	 constant OP_SWP : std_logic_vector(4 downto 0) := "10001";  -- Intercambia la salida del registro a y b
-    constant OP_DIV : std_logic_vector(4 downto 0) := "10011"; -- División op_params 1 bit: DIV a, b ; DIV b, a ; 
-    constant OP_MOD : std_logic_vector(4 downto 0) := "10100"; -- Módulo op_params 1 bit: MOD a, b ; MOD b, a ; 
-    constant OP_RECD : std_logic_vector(4 downto 0) := "10101"; -- Recupera el resultado de la división desacoplada
-    constant OP_MUL  : std_logic_vector(4 downto 0) := "10110"; -- Multiplicación no op_params: MUL a, b ;
-    constant OP_RECM : std_logic_vector(4 downto 0) := "10111"; -- Recupera el resultado de la división desacoplada
+	 constant OP_SWP : std_logic_vector(3 downto 0) := "0001";  -- Intercambia la salida del registro a y b
+    constant OP_DIV : std_logic_vector(3 downto 0) := "0011"; -- División op_params 1 bit: DIV a, b ; DIV b, a ; 
+    constant OP_MOD : std_logic_vector(3 downto 0) := "0100"; -- Módulo op_params 1 bit: MOD a, b ; MOD b, a ; 
+    constant OP_RECD : std_logic_vector(3 downto 0) := "0101"; -- Recupera el resultado de la división desacoplada
+    constant OP_MUL  : std_logic_vector(3 downto 0) := "0110"; -- Multiplicación no op_params: MUL a, b ;
+    constant OP_RECM : std_logic_vector(3 downto 0) := "0111"; -- Recupera el resultado de la división desacoplada
 
     -- Operaciones de Salto y Control de Flujo
     constant OP_JMP  : std_logic_vector(2 downto 0) := "001"; -- Salto Incondicional (Jump)
@@ -47,6 +51,6 @@ package definitions_pkg is
     constant OP_POP  : std_logic_vector(2 downto 0) := "101"; -- Sacar de la pila, siempre en b para usarse inmediatamente después de calcular un valor en a ; no op_params: POP b
 
     -- Operaciones de Entrada/Salida
-    constant OP_OUT  : std_logic_vector(4 downto 0) := "11111"; -- Salida a un puerto (para el sonido)
+    constant OP_OUT  : std_logic_vector(3 downto 0) := "1111"; -- Salida a un puerto (para el sonido)
 
 end package definitions_pkg;
