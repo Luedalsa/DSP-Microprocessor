@@ -9,11 +9,11 @@ use ieee.std_logic_1164.all;
 package definitions_pkg is
 
 
-    constant ALU_OP  : std_logic := '1';
-	 constant GEN_OP  : std_logic := '0';
+    constant ALU_OP  : std_logic := '0';
+	 constant GEN_OP  : std_logic := '1';
 
     -- NOP (Sin operación)
-    constant OP_NOP  : std_logic_vector(4 downto 0) := "00000";
+    constant OP_NOP  : std_logic_vector(3 downto 0) := "0000";
 
     -- Operaciones Aritméticas
     constant OP_ADD  : std_logic_vector(3 downto 0) := "0001"; -- Suma no op_params ADD a, b ; Sólo se necesita 1 configuración

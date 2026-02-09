@@ -293,7 +293,7 @@ begin
                         -- Ejecución de ALU y Movimiento de Datos
                         if rinstruction_out(31) = '0' then
                             -- Operaciones aritméticas estándar (resultado de ALU a Reg A)
-                            if rinstruction_out(31 downto 27) /= OP_NOP then
+                            if rinstruction_out(30 downto 27) /= OP_NOP then
                                 reg_a <= alu_result;
                             end if;
                         else
