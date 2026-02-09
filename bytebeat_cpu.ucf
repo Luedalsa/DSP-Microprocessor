@@ -4,3 +4,4 @@
 # Reemplaza "50 MHz" con la frecuencia del oscilador de tu tarjeta (ej. 50 MHz, 100 MHz)
 NET "CLOCK" TNM_NET = "clk_ref";
 TIMESPEC "TS_clk_ref" = PERIOD "clk_ref" 10 ns HIGH 50%;
+NET "RESET" TIG;
