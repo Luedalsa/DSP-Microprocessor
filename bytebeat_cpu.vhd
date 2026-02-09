@@ -29,6 +29,8 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use work.definitions_pkg.all; -- Contiene las constantes de Opcodes (OP_LDI, OP_PUSH, etc.)
+library UNISIM;
+use UNISIM.VComponents.all;
 
 entity bytebeat_cpu is
     port (
@@ -148,8 +150,15 @@ architecture structural of bytebeat_cpu is
     --signal ram_write_enable : std_logic;
 	 signal rinstruction_we : std_logic;
 	 signal rdata_we : std_logic;
+	 signal rst_global : STD_LOGIC; -- Señal interna "potente"
 
 begin
+
+Reloj_Global_Reset : BUFG
+    port map (
+        I => RESET,         -- Entrada desde el pin físico
+        O => rst_global   -- Salida a la red global de la FPGA
+    );
 
     -- Instanciación de Memoria RAM
     Memory_Unit : RAM
@@ -184,7 +193,7 @@ begin
     generic map ( WIDTH => 32 )
     port map (
         clk         => CLOCK,
-        reset       => RESET,
+        reset       => rst_global,
         start_i     => div_start,
         dividend_i  => std_logic_vector(reg_a), -- Dividendo = Acumulador
         divisor_i   => std_logic_vector(reg_b), -- Divisor = Registro B
@@ -208,11 +217,13 @@ begin
     alu_operand_b <= reg_b;
     -- Extrae el opcode de la instrucción actual (bits 30-27) para controlar la ALU
     alu_op_signal <= rinstruction_out(30 downto 27); 
+	 
+	 
 
     -- PROCESO PRINCIPAL: UNIDAD DE CONTROL Y DATAPATH
-    process(CLOCK, RESET)
+    process(CLOCK, rst_global)
     begin
-        if RESET = '1' then
+        if rst_global = '1' then
             pc            <= (others => '0');
             --pc_old        <= (others => '0');
             reg_t         <= (others => '0');
@@ -326,7 +337,7 @@ begin
                                 when OP_OUT => 
                                      -- Salida de Audio (Bytebeat Core)
                                      AUDIO_OUT <= std_logic_vector(reg_a(7 downto 0));
-                                     pc        <= (others => '0'); -- RESET DEL PC (Bucle infinito por sample)
+                                     pc        <= (others => '0'); -- rst_global DEL PC (Bucle infinito por sample)
                                      reg_t     <= reg_t + 1;       -- Siguiente instante de tiempo t
 
                                 when others => null;
