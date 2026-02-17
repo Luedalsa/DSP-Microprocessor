@@ -2,55 +2,71 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
--- La utilidad de las instrucciones se basa en su relevancia con el bytebeat C-compatible
--- Cada instrucción tiene parámetros (su tamaño es dependiente)
 -- "t" no es un registro de destino
-
+-- OP de 4 bits son operaciones generales, OP de 3 bits son sub-operaciones
 package definitions_pkg is
 
-
     constant ALU_OP  : std_logic := '0';
-	 constant GEN_OP  : std_logic := '1';
-
-    -- NOP (Sin operación)
-    constant OP_NOP  : std_logic_vector(3 downto 0) := "0000";
-
-    -- Operaciones Aritméticas
-    constant OP_ADD  : std_logic_vector(3 downto 0) := "0001"; -- Suma no op_params ADD a, b ; Sólo se necesita 1 configuración
-    constant OP_SUB  : std_logic_vector(3 downto 0) := "0010"; -- Resta op_params 1 bit: SUB a, b ; SUB b, a ; Sólo se necesitan 2 configuraciones
-    constant OP_GT   : std_logic_vector(3 downto 0) := "0110";
-    constant OP_LT   : std_logic_vector(3 downto 0) := "0111";
-
-    -- Operaciones Lógicas y a Nivel de Bit (Bitwise)
-    constant OP_AND  : std_logic_vector(3 downto 0) := "1000"; -- AND lógico no op_params AND a, b ;
-    constant OP_OR   : std_logic_vector(3 downto 0) := "1001"; -- OR lógico no op_params OR a, b ;
-    constant OP_XOR  : std_logic_vector(3 downto 0) := "1010"; -- XOR lógico no op_params XOR a, b ;
-    constant OP_NOT  : std_logic_vector(3 downto 0) := "1011"; -- NOT lógico op_params 1 bit: NOT a ; NOT b ;
-    constant OP_SHR  : std_logic_vector(3 downto 0) := "1100"; -- Desplazamiento a la derecha (t >> n) op_params 1 bit: SHR a, b ; SHR b, a ; 
-    constant OP_SHL  : std_logic_vector(3 downto 0) := "1101"; -- Desplazamiento a la izquierda (t << n) op_params 1 bit: SHL a, b ; SHL b, a ; 
-
-    -- Operaciones de Transferencia de Datos
-    constant OP_MOV  : std_logic_vector(3 downto 0) := "0000"; -- Mover dato op_params 1 bit: MOV a, t ; MOV b, t
-    constant OP_LDI  : std_logic_vector(2 downto 0) := "111"; -- Cargar Inmediato (cargar un valor constante de 32 bit a un registro) op_params 33 bit: LDI a, c ; LDI b, c ;
+    -- Operaciones de la Unidad Aritmético Lógica (Combinacional)
 	 
-	 -- Operación de intercambio
-	 constant OP_SWP : std_logic_vector(3 downto 0) := "0001";  -- Intercambia la salida del registro a y b
-    constant OP_DIV : std_logic_vector(3 downto 0) := "0011"; -- División op_params 1 bit: DIV a, b ; DIV b, a ; 
-    constant OP_MOD : std_logic_vector(3 downto 0) := "0100"; -- Módulo op_params 1 bit: MOD a, b ; MOD b, a ; 
-    constant OP_RECD : std_logic_vector(3 downto 0) := "0101"; -- Recupera el resultado de la división desacoplada
-    constant OP_MUL  : std_logic_vector(3 downto 0) := "0110"; -- Multiplicación no op_params: MUL a, b ;
-    constant OP_RECM : std_logic_vector(3 downto 0) := "0111"; -- Recupera el resultado de la división desacoplada
+    constant OP_ADD  : std_logic_vector(3 downto 0) := "0001";
+    -- Suma de registros: a + b
+    constant OP_SUB  : std_logic_vector(3 downto 0) := "0010";
+    -- Resta de registros: a - b | b - a
+    constant OP_AND  : std_logic_vector(3 downto 0) := "1000";
+    -- AND bit a bit
+    constant OP_OR   : std_logic_vector(3 downto 0) := "1001";
+    -- OR bit a bit
+    constant OP_XOR  : std_logic_vector(3 downto 0) := "1010";
+    -- XOR bit a bit
+    constant OP_NOT  : std_logic_vector(3 downto 0) := "1011";
+    -- NOT lógico: ~a | ~b
+    constant OP_SHR  : std_logic_vector(3 downto 0) := "1100";
+    -- Desplazamiento a la derecha (Shift Right)
+    constant OP_SHL  : std_logic_vector(3 downto 0) := "1101";
+    -- Desplazamiento a la izquierda (Shift Left)
+    constant OP_GT   : std_logic_vector(3 downto 0) := "0110";
+    -- Mayor que (Greater Than)
+    constant OP_LT   : std_logic_vector(3 downto 0) := "0111";
+    -- Menor que (Less Than)
+	 
+    constant GEN_OP  : std_logic := '1';
+    -- Operaciones de propósito general y control (Y ALU desacoplada)
 
-    -- Operaciones de Salto y Control de Flujo
-    constant OP_JMP  : std_logic_vector(2 downto 0) := "001"; -- Salto Incondicional (Jump)
-    constant OP_JZ   : std_logic_vector(2 downto 0) := "010"; -- Compara registro a con 0 y salta si es igual - op_params 4 bit: JZ dir
-    constant OP_JNE  : std_logic_vector(2 downto 0) := "011"; -- Salto si no es igual
-
-    -- Operaciones de Pila (Stack)
-    constant OP_PUSH : std_logic_vector(2 downto 0) := "100"; -- Empujar a la pila, solo con a debido a optimizaciones en cálculos de ALU (siempre se guardan en a) ; no op_params: PUSH a
-    constant OP_POP  : std_logic_vector(2 downto 0) := "101"; -- Sacar de la pila, siempre en b para usarse inmediatamente después de calcular un valor en a ; no op_params: POP b
-
-    -- Operaciones de Entrada/Salida
-    constant OP_OUT  : std_logic_vector(3 downto 0) := "1111"; -- Salida a un puerto (para el sonido)
+    constant OP_DIV  : std_logic_vector(3 downto 0) := "0011";
+    -- División: a / b | b / a
+    constant OP_MOD  : std_logic_vector(3 downto 0) := "0100";
+    -- Módulo: a % b | b % a
+    constant OP_RECD : std_logic_vector(3 downto 0) := "0101";
+    -- Recuperar cociente de división desacoplada
+    constant OP_MUL  : std_logic_vector(3 downto 0) := "0110";
+    -- Multiplicación: a * b
+    constant OP_RECM : std_logic_vector(3 downto 0) := "0111";
+    -- Recuperar producto de multiplicación
+    constant OP_NOP  : std_logic_vector(3 downto 0) := "0000";
+    -- Sin operación (No Operation)
+    constant OP_MOV  : std_logic_vector(3 downto 0) := "0000";
+    -- Mover dato a registro 't'
+    constant OP_SWP  : std_logic_vector(3 downto 0) := "0001";
+    -- Intercambiar datos entre registros a y b
+    constant OP_OUT  : std_logic_vector(3 downto 0) := "1111";
+    -- Escribir dato a puerto de salida (ej. audio)
+    constant OP_IN   : std_logic_vector(3 downto 0) := "1110";
+    -- Leer dato de puerto de entrada (Próximo a implementar)
+	 
+	 --suboperaciones
+	 
+    constant OP_LDI  : std_logic_vector(2 downto 0) := "111";
+    -- Cargar inmediato de 32 bits a registro
+    constant OP_JMP  : std_logic_vector(2 downto 0) := "001";
+    -- Salto incondicional
+    constant OP_JZ   : std_logic_vector(2 downto 0) := "010";
+    -- Salto si es cero (Jump if Zero)
+    constant OP_JNE  : std_logic_vector(2 downto 0) := "011";
+    -- Salto si no es igual (Jump if Not Equal)
+    constant OP_PUSH : std_logic_vector(2 downto 0) := "100";
+    -- Empujar registro 'a' a la pila
+    constant OP_POP  : std_logic_vector(2 downto 0) := "101";
+    -- Extraer de la pila al registro 'b'
 
 end package definitions_pkg;

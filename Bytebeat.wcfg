@@ -16,6 +16,7 @@
             <top_module name="std_logic_textio" />
             <top_module name="std_logic_unsigned" />
             <top_module name="textio" />
+            <top_module name="vcomponents" />
          </top_modules>
       </db_ref>
    </db_ref_list>
@@ -35,18 +36,22 @@
    <wvobject fp_name="/bytebeat_cpu_tb/uut/data_in" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">data_in[31:0]</obj_property>
       <obj_property name="ObjectShortName">data_in[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/bytebeat_cpu_tb/uut/audio_out" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">audio_out[7:0]</obj_property>
       <obj_property name="ObjectShortName">audio_out[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/bytebeat_cpu_tb/uut/pc" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">pc[5:0]</obj_property>
       <obj_property name="ObjectShortName">pc[5:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/bytebeat_cpu_tb/uut/pc_old" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">pc_old[5:0]</obj_property>
       <obj_property name="ObjectShortName">pc_old[5:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/bytebeat_cpu_tb/uut/was_jump" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">was_jump</obj_property>
@@ -55,18 +60,22 @@
    <wvobject fp_name="/bytebeat_cpu_tb/uut/alu_operand_a" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">alu_operand_a[31:0]</obj_property>
       <obj_property name="ObjectShortName">alu_operand_a[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/bytebeat_cpu_tb/uut/alu_operand_b" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">alu_operand_b[31:0]</obj_property>
       <obj_property name="ObjectShortName">alu_operand_b[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/bytebeat_cpu_tb/uut/alu_result" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">alu_result[31:0]</obj_property>
       <obj_property name="ObjectShortName">alu_result[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/bytebeat_cpu_tb/uut/alu_op_signal" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">alu_op_signal[3:0]</obj_property>
       <obj_property name="ObjectShortName">alu_op_signal[3:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/bytebeat_cpu_tb/uut/div_start" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">div_start</obj_property>
@@ -75,10 +84,12 @@
    <wvobject fp_name="/bytebeat_cpu_tb/uut/div_quotient" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">div_quotient[31:0]</obj_property>
       <obj_property name="ObjectShortName">div_quotient[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/bytebeat_cpu_tb/uut/div_remainder" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">div_remainder[31:0]</obj_property>
       <obj_property name="ObjectShortName">div_remainder[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/bytebeat_cpu_tb/uut/div_busy" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">div_busy</obj_property>
@@ -91,38 +102,47 @@
    <wvobject fp_name="/bytebeat_cpu_tb/uut/reg_a" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">reg_a[31:0]</obj_property>
       <obj_property name="ObjectShortName">reg_a[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/bytebeat_cpu_tb/uut/reg_b" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">reg_b[31:0]</obj_property>
       <obj_property name="ObjectShortName">reg_b[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/bytebeat_cpu_tb/uut/reg_t" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">reg_t[31:0]</obj_property>
       <obj_property name="ObjectShortName">reg_t[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/bytebeat_cpu_tb/uut/rinstruction_address" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">rinstruction_address[5:0]</obj_property>
       <obj_property name="ObjectShortName">rinstruction_address[5:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/bytebeat_cpu_tb/uut/rdata_address" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">rdata_address[5:0]</obj_property>
       <obj_property name="ObjectShortName">rdata_address[5:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/bytebeat_cpu_tb/uut/rinstruction_in" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">rinstruction_in[31:0]</obj_property>
       <obj_property name="ObjectShortName">rinstruction_in[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/bytebeat_cpu_tb/uut/rdata_in" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">rdata_in[31:0]</obj_property>
       <obj_property name="ObjectShortName">rdata_in[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/bytebeat_cpu_tb/uut/rinstruction_out" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">rinstruction_out[31:0]</obj_property>
       <obj_property name="ObjectShortName">rinstruction_out[31:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/bytebeat_cpu_tb/uut/rdata_out" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">rdata_out[31:0]</obj_property>
       <obj_property name="ObjectShortName">rdata_out[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/bytebeat_cpu_tb/uut/rinstruction_we" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">rinstruction_we</obj_property>
@@ -174,6 +194,263 @@
       <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">ram_block[0:63]</obj_property>
          <obj_property name="ObjectShortName">ram_block[0:63]</obj_property>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[0]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[0]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[1]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[1]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[1]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[2]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[2]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[2]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[3]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[3]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[3]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[4]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[4]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[4]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[5]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[5]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[5]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[6]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[6]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[6]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[7]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[7]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[7]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[8]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[8]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[8]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[9]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[9]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[9]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[10]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[10]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[10]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[11]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[11]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[11]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[12]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[12]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[12]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[13]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[13]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[13]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[14]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[14]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[14]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[15]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[15]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[15]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[16]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[16]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[16]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[17]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[17]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[17]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[18]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[18]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[18]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[19]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[19]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[19]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[20]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[20]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[20]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[21]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[21]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[21]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[22]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[22]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[22]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[23]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[23]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[23]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[24]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[24]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[24]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[25]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[25]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[25]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[26]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[26]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[26]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[27]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[27]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[27]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[28]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[28]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[28]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[29]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[29]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[29]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[30]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[30]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[30]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[31]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[31]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[31]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[32]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[32]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[32]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[33]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[33]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[33]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[34]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[34]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[34]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[35]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[35]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[35]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[36]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[36]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[36]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[37]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[37]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[37]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[38]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[38]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[38]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[39]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[39]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[39]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[40]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[40]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[40]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[41]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[41]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[41]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[42]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[42]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[42]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[43]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[43]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[43]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[44]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[44]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[44]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[45]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[45]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[45]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[46]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[46]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[46]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[47]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[47]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[47]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[48]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[48]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[48]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[49]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[49]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[49]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[50]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[50]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[50]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[51]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[51]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[51]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[52]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[52]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[52]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[53]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[53]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[53]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[54]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[54]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[54]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[55]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[55]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[55]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[56]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[56]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[56]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[57]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[57]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[57]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[58]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[58]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[58]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[59]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[59]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[59]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[60]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[60]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[60]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[61]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[61]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[61]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[62]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[62]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[62]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/ram_block[63]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[63]</obj_property>
+            <obj_property name="ObjectShortName">ram_block[63]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+         </wvobject>
       </wvobject>
       <wvobject fp_name="/bytebeat_cpu_tb/uut/Memory_Unit/data_width" type="other" db_ref_id="1">
          <obj_property name="ElementShortName">data_width</obj_property>
