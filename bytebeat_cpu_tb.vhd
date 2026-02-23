@@ -32,7 +32,7 @@ architecture behavior of bytebeat_cpu_tb is
 
     -- Definición del periodo de reloj del CPU (Ej. 50 MHz -> 20 ns)
     -- Esto es independiente de la frecuencia de audio.
-    constant CLOCK_period : time := 20 ns; 
+    constant CLOCK_period : time := 6944 ns; 
  
 begin
  
@@ -55,7 +55,7 @@ begin
     end process;
  
     -- =================================================================
-    -- PROCESO DE GRABACIÓN DE AUDIO (DAC SIMULADO)
+    -- PROCESO DE GRABACI�"N DE AUDIO (DAC SIMULADO)
     -- =================================================================
     -- Modificado: Graba asíncronamente cada 125 us (8000 Hz)
     file_writer_process : process
@@ -87,6 +87,9 @@ begin
         begin
             DATA_IN <= raw_instr;
             wait for CLOCK_period;
+				
+            --DATA_IN <= "00000000000000000000000000000000"; -- BURBUJA POR QUE LA CHINGADERA ESTA ESTA BUGUEADA COMO LA MRD
+            --wait for CLOCK_period;
         end procedure;
 
     begin		
@@ -99,59 +102,23 @@ begin
         RESET <= '0';
         
         report "Cargando programa...";
+        write_instruction_with_data((others => '0'));
 
-        -- Secuencia de instrucciones reconstruida (Tu programa Bytebeat)
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_MOV & OP_LDI & "000000000000000000000011");
-        write_instruction_with_data(OP_DIV & "000000000000000000000000000");
-        write_instruction_with_data(OP_MOV & OP_LDI & "000000000000000000001011");
-        write_instruction_with_data(OP_MUL & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_RECM & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
-        write_instruction_with_data(OP_NOP & "000000000000000000000000000");
+        -- t * (42 & t>>10)
+        write_instruction_with_data(GEN_OP & OP_MOV & OP_LDI & "000000000000000000001010");
+        write_instruction_with_data(ALU_OP & OP_SHR & OP_LDI & "000000000000000000101010");
+        write_instruction_with_data(ALU_OP & OP_AND & "000000000000000000000000000");
+        write_instruction_with_data(GEN_OP & OP_SWP & OP_LDI & "000000000000000000000001");
+        write_instruction_with_data(GEN_OP & OP_MOV & "000000000000000000000000000");
+        write_instruction_with_data(GEN_OP & OP_MUL & "000000000000000000000000000");
+        write_instruction_with_data((others => '0'));
+        write_instruction_with_data((others => '0'));
+        write_instruction_with_data((others => '0'));
+        write_instruction_with_data((others => '0'));
+        write_instruction_with_data(GEN_OP & OP_RECM & "000000000000000000000000000");
 
 
-        write_instruction_with_data(OP_OUT & "000000000000000000000000000"); -- OUT resetea PC
+        write_instruction_with_data(GEN_OP & OP_OUT & "000000000000000000000000000"); -- OUT resetea PC
 
         -- NOPs de relleno
         write_instruction_with_data((others => '0'));
@@ -160,7 +127,7 @@ begin
         DATA_IN <= (others => '0');
         report "Carga finalizada." severity note;
 
-        -- FASE 2: EJECUCIÓN
+        -- FASE 2: EJECUCI�"N
         report "Ejecutando Bytebeat...";
         INS_WRITE_ENABLED <= '0';
         
@@ -170,8 +137,11 @@ begin
         RESET <= '0';
         
         -- Ejecución prolongada para generar suficiente audio
+		  
+		  
+		  
         -- 4 segundos de audio a 8kHz = 32,000 muestras
-        wait for 500 ms; 
+        wait for 10000 ms; 
         
         report "Simulación completada." severity note;
         assert false report "Fin normal de la simulación" severity failure;
