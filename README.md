@@ -8,6 +8,12 @@ A custom RISC-like softcore processor designed for parallel, memory-to-memory di
 
 This is a minimalist, Harvard-architecture microprocessor optimized for DSP workloads. It borrows several traits from VLIW designs while remaining a RISC core, with a focus on high clock frequency, low resource utilization, and efficient parallel data processing.
 
+Circuit diagram:
+<img width="920" height="837" alt="image" src="https://github.com/user-attachments/assets/4e84ea4f-c201-4dad-890c-f7e1e0520725" />
+
+Implementation:
+<img width="921" height="499" alt="image" src="https://github.com/user-attachments/assets/216000f8-698e-4ffe-a599-360e14a69134" />
+
 ---
 
 ## Key Features
